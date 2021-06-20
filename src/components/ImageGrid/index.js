@@ -4,8 +4,6 @@ import { config } from '../../config';
 
 import './styles.css';
 
-console.log(config)
-
 const ImageGrid = () => {
     const [images, setImages] = useState([])
 
