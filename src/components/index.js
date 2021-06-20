@@ -6,10 +6,10 @@ import ImageGrid from './ImageGrid';
 class App extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Header />
                 <ImageGrid />
-            </div>
+            </>
         );
     }
 }
