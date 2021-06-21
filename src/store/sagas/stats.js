@@ -1,8 +1,21 @@
-import { fork, take } from 'redux-saga/effects';
+import { call, fork, put, take } from 'redux-saga/effects';
+import { unsplash } from '../../apis';
+import { loadImageStats, setImageStats, setImageStatsError } from '../actions';
 import { IMAGES } from '../constants';
 
+const RETRIALS = 3;
+
 function* handleImageStats(id) {
-    console.log('fetching stats for image', id);
+    for (let i = 0; i < RETRIALS; i++) {
+        try {
+            yield put(loadImageStats(id))
+            const { downloads } = yield call(unsplash.getPhotoStats, id)
+            yield put(setImageStats(id, downloads?.total))
+            return true
+        } catch (error) {}
+    }
+
+    yield put(setImageStatsError(id))
 }
 
 function* statsSaga() {
