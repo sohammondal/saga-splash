@@ -1,0 +1,27 @@
+.error-notifier {
+    padding: 10px;
+    background-color: #ff0000d1;
+    color: whitesmoke;
+    cursor: default;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    margin: 0 auto;
+    top: 90%;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    width: 25vw;
+}
+
+.dismiss-button {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.dismiss-button:hover {
+    opacity: 1;
+}

@@ -12,7 +12,10 @@ export const unsplash = {
         
         const resp = await fetch(url)
         
-        if(resp.status >= 400) throw new Error('Api call failed')
+        if(resp.status >= 400) {
+            const err = await resp.text()
+            throw new Error(err)
+        }
 
         return await resp.json()
 
@@ -24,7 +27,10 @@ export const unsplash = {
         
         const resp = await fetch(url)
         
-        if(resp.status >= 400) throw new Error('Api call failed')
+        if(resp.status >= 400) {
+            const err = await resp.text()
+            throw new Error(err)
+        }
 
         return await resp.json()
 
